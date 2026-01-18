@@ -1,25 +1,32 @@
 import tkinter as tk
 import threading
 import time
+import os
 
 PASSWORT = "7985357"
 
-
-
+# === Script nach 10 Sekunden ===
 def after_10_seconds():
     time.sleep(10)
-    DEIN_SCRIPT()
+    print("DEIN SCRIPT WIRD AUSGEFÜHRT")
+    # os.system("python dein_script.py")
 
-# Fenster
+# === Fenster ===
 root = tk.Tk()
 root.configure(bg="red")
+
+# Vollbild + immer oben
 root.attributes("-fullscreen", True)
 root.attributes("-topmost", True)
+
+# Fokus erzwingen (SEHR wichtig gegen Taskleiste)
 root.focus_force()
 root.grab_set()
+
+# Schließen blockieren
 root.protocol("WM_DELETE_WINDOW", lambda: None)
 
-# Text oben
+# === Text oben ===
 label = tk.Label(
     root,
     text="hallo",
@@ -32,7 +39,7 @@ label.pack(pady=30)
 # Spacer
 tk.Frame(root, bg="red").pack(expand=True)
 
-# Passwortfeld unten
+# === Passwortfeld unten ===
 entry = tk.Entry(
     root,
     show="*",
@@ -42,6 +49,7 @@ entry = tk.Entry(
 entry.pack(pady=20)
 entry.focus_set()
 
+# === Passwortprüfung ===
 def check_password(event=None):
     if entry.get() == PASSWORT:
         root.grab_release()
@@ -51,10 +59,10 @@ def check_password(event=None):
 
 entry.bind("<Return>", check_password)
 
-# Tasten blockieren
+# === Tastenkombinationen blockieren ===
 for key in [
-    "<Escape>",
     "<Alt-F4>",
+    "<Escape>",
     "<Alt-Tab>",
     "<Control-Escape>",
     "<Win_L>",
@@ -62,7 +70,7 @@ for key in [
 ]:
     root.bind_all(key, lambda e: "break")
 
-# Timer starten
+# === Timer starten ===
 threading.Thread(target=after_10_seconds, daemon=True).start()
 
 root.mainloop()
