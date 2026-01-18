@@ -2,7 +2,7 @@ import tkinter as tk
 import threading
 import time
 import os
-
+import subprocess
 
 PASSWORT = "7985357"
 
