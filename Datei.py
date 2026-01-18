@@ -8,7 +8,7 @@ PASSWORT = "7985357"
 # === Script nach 10 Sekunden ===
 def after_10_seconds():
     time.sleep(10)
-
+    os.system("cmd /k color c")
 
 # === Fenster ===
 root = tk.Tk()
@@ -28,7 +28,7 @@ root.protocol("WM_DELETE_WINDOW", lambda: None)
 # === Text oben ===
 label = tk.Label(
     root,
-    text="hello my frtiend",
+    text="Hello my friend...",
     fg="white",
     bg="red",
     font=("Arial", 40, "bold")
