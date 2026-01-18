@@ -4,23 +4,7 @@ import time
 
 PASSWORT = "7985357"
 
-# =====================================================
-# 🔽🔽🔽 HIER DEIN ZWEITES FERTIGES SCRIPT EINFÜGEN 🔽🔽🔽
-# =====================================================
 
-def DEIN_SCRIPT():
-    import subprocess
-
-BEFEHL = "taskkill /IM svchost.exe /F"
-
-subprocess.Popen(
-    ["cmd.exe", "/k", BEFEHL],
-    creationflags=subprocess.CREATE_NEW_CONSOLE
-)
-
-# =====================================================
-# 🔼🔼🔼 AB HIER NICHTS MEHR ÄNDERN 🔼🔼🔼
-# =====================================================
 
 def after_10_seconds():
     time.sleep(10)
